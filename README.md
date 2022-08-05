@@ -19,8 +19,6 @@ Socorro:
 No terminal:  
 python --version
 (python ausente --> Google --> python dowload --> python.org)  
-
-Python -
-print(" ") ou print('') --> Pode ser áspas ("") ou apóstrafos(')
-
-Comentairo em paython --> #
+## **arquivo_fonte_python.py**  
+- print(" ") ou print('') --> Pode ser áspas ("") ou apóstrafos(')  
+- Comentairo em paython --> #
