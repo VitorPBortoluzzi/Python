@@ -22,3 +22,5 @@ python --version
 
 Python -
 print(" ") ou print('') --> Pode ser áspas ("") ou apóstrafos(')
+
+Comentairo em paython --> #
