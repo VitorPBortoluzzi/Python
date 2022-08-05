@@ -1,7 +1,7 @@
 print("Bem vindos")
 
 frase = input ("Digite Algo")
-
+#input=Ler do Teclado
 print("Voce digitou:", frase)
 
 idade = int (input("Digite sua Idade:"))
