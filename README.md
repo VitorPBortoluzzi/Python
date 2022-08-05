@@ -12,4 +12,8 @@
 
 ## Extensões:
 *Python/IntelliSense*  
-*Kite AutoComplete*
+*Kite AutoComplete*  
+
+No terminal:  
+python --version
+(python ausente --> Google --> python dowload --> python.org)  
