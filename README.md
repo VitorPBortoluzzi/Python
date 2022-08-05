@@ -19,3 +19,6 @@ Socorro:
 No terminal:  
 python --version
 (python ausente --> Google --> python dowload --> python.org)  
+
+Python -
+print(" ") ou print('') - Pode ser áspas ("") ou apóstrafos(')
