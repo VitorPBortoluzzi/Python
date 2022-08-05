@@ -9,3 +9,7 @@
 1ª)PyCharm.  
 2ª)VisualStudioCode.  
 3ª)Replit Python.  
+
+## Extensões:
+*Python/IntelliSense*  
+*Kite AutoComplete*
