@@ -12,7 +12,9 @@
 
 ## Extensões:
 *Python/IntelliSense*  
-*Kite AutoComplete*  
+*Kite-->AutoComplete*   
+Socorro: 
+- https://help.kite.com/article/69-using-the-vs-code-plugin  
 
 No terminal:  
 python --version
