@@ -22,4 +22,3 @@ python --version
 ## **arquivo_fonte_python.py**  
 - print(" ") ou print('') --> Pode ser áspas ("") ou apóstrafos(')  
 - Comentairo em paython --> #
-teste git
