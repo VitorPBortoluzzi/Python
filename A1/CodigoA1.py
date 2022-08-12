@@ -1,4 +1,4 @@
-print("Bem vindos")
+#print("Bem vindos")
 
 frase = input ("Digite Algo")
 #input=Ler do Teclado
