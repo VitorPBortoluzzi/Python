@@ -1,4 +1,5 @@
-peso = float (input("Digite seu peso em Quilos: "))
-altura = float(input("Digite sua altura em Metros: "))
+print("Bem-Vindo: Usuário\nDigite seus dados:")
+peso = float (input(" seu peso em Quilos: "))
+altura = float(input(" sua altura em Metros: "))
 indiceM_Coroporal = peso/(altura*altura)
 print("Seu indice de Massa corporal eh: ",indiceM_Coroporal)
