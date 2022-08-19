@@ -38,14 +38,14 @@
 #for i in numerosInt:
 #    print(i)
 #6)
-from audioop import reverse
-
-
-numerosInt = []
-z = 0
-for z in range(10):
-    x = int (input("Digite o numero: "))
-    numerosInt.append(x)
-numerosInt.reverse()
-for x in numerosInt:
-    print (x)
+#from audioop import reverse
+#
+#
+#numerosInt = []
+#z = 0
+#for z in range(10):
+#    x = int (input("Digite o numero: "))
+#    numerosInt.append(x)
+#numerosInt.reverse()
+#for x in numerosInt:
+#    print (x)
