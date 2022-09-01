@@ -22,3 +22,10 @@ python --version
 ## **arquivo_fonte_python.py**  
 - print(" ") ou print('') --> Pode ser áspas ("") ou apóstrafos(')  
 - Comentáiro em paython --> #
+
+
+## **Classe:** 
+### String:
+- **Métodos: https://www.w3schools.com/python/python_ref_string.asp**  
+### Random:
+- **Métodos: https://www.w3schools.com/python/module_random.asp**
