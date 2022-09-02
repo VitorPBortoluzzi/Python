@@ -45,3 +45,24 @@ class AlunoInit:
 Um_aluno = AlunoInit("Vitor Bortoluzzi", "CC")
 
 #print(Um_aluno.pegar_Sobrenome())
+
+class AlunoZam:
+    def __init__(Self,nome,curso):
+        Self.nome = nome
+        Self.curso = curso
+
+    def pegar_Sobrenome(Self):
+        nomes = Self.nome.split()
+        return nomes[-1]
+    #toString
+    def __Str__ (Self):
+        return "Nome:"+Self.nome + "Cruso: " + Self.curso
+
+
+aluno_1 = AlunoZam("Jonatham","SI")
+print(aluno_1)
+# imprime local da memória
+#===========
+#pós toString
+aluno_2 = AlunoZam("Jonatham","SI")
+print(aluno_2.__Str__())
