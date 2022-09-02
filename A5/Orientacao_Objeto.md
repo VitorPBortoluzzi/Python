@@ -8,3 +8,4 @@
 -	Estrutura q marca ou define um "tipo" com atributos e métodos.  
 	- Forma:Objetos=elementos/instancia/ocorrência de uma classe;  
 	- Um objeto é  instanciado ao programa p/Facilitar alg;    
+	
