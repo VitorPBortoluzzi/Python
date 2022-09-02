@@ -29,3 +29,6 @@ python --version
 - **Métodos: https://www.w3schools.com/python/python_ref_string.asp**  
 ### Random:
 - **Métodos: https://www.w3schools.com/python/module_random.asp**
+
+
+Leitura de Arquivos: https://www.w3schools.com/python/python_file_handling.asp
