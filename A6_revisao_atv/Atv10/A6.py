@@ -1,8 +1,5 @@
 #Elementos da lista devem ser da classe Glicemia
 class Glicemia:
-    valor_glicemia = 0
-    data_medicao = ""
-    hora_medicao = ""
 
     def __init__(self,valor_glicemia,data_medicao,hora_medicao):
         self.valor_glicemia = valor_glicemia
@@ -19,20 +16,35 @@ class Glicemia:
 
 
 #Pedir o arquivo
-nome_arquivo = input("Insira o nome do Arquivo: ")
+nome_arquivo = input("Insira o nome do Arquivo:")
 
 #Lista de dados glicemicos
 lista_glicemica = []
 
 #Percorrer o arquivo e a cada linha lida, splitar pelo simbolo "@" em objetos Glicemia,
 #adicionando na lista;
-procurador_arquivo = open(nome_arquivo,"r")
+try:
+    with open(nome_arquivo,'r') as procurador:
+        for linha in procurador:
+            dados_linha = linha.split("@")
+            lista_glicemica.append(Glicemia(int(dados_linha[0]),dados_linha[1],dados_linha[2]))
+except:
+    print("Porblema com arquivo")
 
-for linha in procurador_arquivo:
-    dados_linha = linha.split("@")
-    lista_glicemica.append(Glicemia(dados_linha[0],dados_linha[1],dados_linha[2]))
-    print(linha)
+for item in lista_glicemica:
+    print(item.valor_glicemia)
 #Aplicar na lista as medidas centrais
 
+soma = 0
+for item in lista_glicemica:
+    soma = soma + item.valor_glicemia
 
-procurador_arquivo.close()
+media = soma / len(lista_glicemica)
+print("A média glicemica é: ",round(media,1))
+
+
+menor_glicemia = min(lista_glicemica, key= lambda g: Glicemia.valor_glicemia)
+print("O menor valor é: ",menor_glicemia.valor_glicemia, menor_glicemia.data_medicao)
+
+maior_glicemia = max(lista_glicemica, key= lambda g: Glicemia.valor_glicemia)
+print("O maior valor é: ",maior_glicemia.valor_glicemia, maior_glicemia.data_medicao)
