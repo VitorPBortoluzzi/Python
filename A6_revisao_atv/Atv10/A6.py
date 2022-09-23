@@ -19,7 +19,7 @@ class Glicemia:
 
 
 #Pedir o arquivo
-nome_arquivo = input("Insira o nome do Arquivo .txt: ")
+nome_arquivo = input("Insira o nome do Arquivo: ")
 
 #Lista de dados glicemicos
 lista_glicemica = []
@@ -29,6 +29,8 @@ lista_glicemica = []
 procurador_arquivo = open(nome_arquivo,"r")
 
 for linha in procurador_arquivo:
+    dados_linha = linha.split("@")
+    
     print(linha)
 #Aplicar na lista as medidas centrais
 
