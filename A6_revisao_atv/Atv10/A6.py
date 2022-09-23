@@ -30,7 +30,7 @@ procurador_arquivo = open(nome_arquivo,"r")
 
 for linha in procurador_arquivo:
     dados_linha = linha.split("@")
-    
+    lista_glicemica.append(Glicemia(dados_linha[0],dados_linha[1],dados_linha[2]))
     print(linha)
 #Aplicar na lista as medidas centrais
 
