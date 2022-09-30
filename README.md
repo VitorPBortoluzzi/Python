@@ -3,7 +3,8 @@
 # **Primeira Aula**
 
 - w3schools.com --> Site/tutorial
-
+Ctrl + k + c IDENTA
+Ctrl + k + u REMOVE
 *IDEs p/ python*
 
 1ª)PyCharm.  
