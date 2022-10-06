@@ -43,8 +43,8 @@ media = soma / len(lista_glicemica)
 print("A média glicemica é: ",round(media,1))
 
 
-menor_glicemia = min(lista_glicemica, key= lambda g: Glicemia.valor_glicemia)
-print("O menor valor é: ",menor_glicemia.valor_glicemia, menor_glicemia.data_medicao)
+menor_glicemia = min(lista_glicemica, key = lambda g : g.valor_glicemia)
+print("O menor valor é: ",menor_glicemia.valor_glicemia," ",menor_glicemia.data_medicao)
 
-maior_glicemia = max(lista_glicemica, key= lambda g: Glicemia.valor_glicemia)
-print("O maior valor é: ",maior_glicemia.valor_glicemia, maior_glicemia.data_medicao)
+maior_glicemia = max(lista_glicemica, key= lambda g: g.valor_glicemia)
+print("O maior valor é: ",maior_glicemia.valor_glicemia," ",maior_glicemia.data_medicao)
