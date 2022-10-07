@@ -53,7 +53,7 @@ while(True):
                         dados_linha = linha.split(". ")
                         autores = dados_linha[0].split(".;")
                         for elemento in autores:
-                            if (not elemento.strip in lista_autores):
+                            if (not elemento in lista_autores):
                                 lista_autores.append(elemento)
                 for autor in lista_autores:
                     print(autor)
