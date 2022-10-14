@@ -9,8 +9,9 @@
 #             email
 #             matricula
 from __future__ import with_statement
+from encodings import utf_8
 
-class pessoa:
+class Pessoa:
     def __init__(self,nome,email,matricula):
         self.nome = nome
         self.email = email
@@ -25,6 +26,15 @@ class pessoa:
         return nomes[-1]
 
 lista_Inscricao = []
+arq_inscritos = "Inscritos.csv"
+try:
+    with open(arq_inscritos, "r", encoding='utf8') as procurador:
+        for linha in procurador:
+            dados_linha = linha.split(';')
+            pessoa = Pessoa(dados_linha[0],dados_linha[1],dados_linha[2])
+            lista_Inscricao.append(pessoa)
+except:
+    print("Sistema sendo usado pela primeira")
 
 while(True):
     print("Menu")
@@ -35,6 +45,8 @@ while(True):
     print("5 - Sair")
     opcao = int(input("Opção: "))
     
+
+    
     if(opcao == 1):
         nome = input("Nome: ")
         email = input("Email: ")
@@ -42,8 +54,6 @@ while(True):
         arq_inscritos = open("Inscritos.csv", "a")
         arq_inscritos.write(nome + ";" + email + ";" + matricula + ".\n" )
         arq_inscritos.close()
-
-
     elif(opcao == 5):
         break
 #         Arquivos
