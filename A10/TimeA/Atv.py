@@ -10,6 +10,7 @@
 #             matricula
 from __future__ import with_statement
 from encodings import utf_8
+from operator import truediv
 
 class Pessoa:
     def __init__(self,nome,email,matricula):
@@ -25,6 +26,19 @@ class Pessoa:
         nomes = self.nome.split(" ")
         return nomes[-1]
 
+def valida_nome(nome):
+    nomes = nome.split(" ")
+    if len(nomes) <= 1:
+        return False
+    else:
+        return True
+
+def valida_email(email):
+    if (not email.__contains__('@')):
+        return False
+    else:
+        return True
+
 lista_Inscricao = []
 arq_inscritos = "Inscritos.csv"
 try:
@@ -34,7 +48,7 @@ try:
             pessoa = Pessoa(dados_linha[0],dados_linha[1],dados_linha[2])
             lista_Inscricao.append(pessoa)
 except:
-    print("Sistema sendo usado pela primeira")
+    pass
 
 while(True):
     print("Menu")
@@ -45,15 +59,40 @@ while(True):
     print("5 - Sair")
     opcao = int(input("Opção: "))
     
-
-    
     if(opcao == 1):
-        nome = input("Nome: ")
-        email = input("Email: ")
-        matricula = input("Matricula: ")
-        arq_inscritos = open("Inscritos.csv", "a")
-        arq_inscritos.write(nome + ";" + email + ";" + matricula + ".\n" )
-        arq_inscritos.close()
+        # nome = input("Nome: ")
+        # email = input("Email: ")
+        # matricula = input("Matricula: ")
+        # arq_inscritos = open("Inscritos.csv", "a")
+        # arq_inscritos.write(nome + ";" + email + ";" + matricula + ".\n" )
+        # arq_inscritos.close()
+        while (True):
+            nome = input("Insira o nome completo:")
+            if (valida_nome(nome) == True):
+                break
+            else:
+                print("Siga as instruções")
+        while (True):
+            email = input ("Digite o email:")
+            if len(email) > 10:
+                if(valida_email(email) == True):
+                    break
+        while (True):
+            matricula = input("Insira a matricula: ")
+            if len(matricula) >= 5:
+                break
+        pessoa = Pessoa(nome,email,matricula)
+
+        #gravas na lista
+        lista_Inscricao.append(pessoa)
+
+        try:
+            with open(arq_inscritos, "a", encoding='utf8') as procurador:
+                procurador.write(nome + ";" + email + ";" + matricula + ".\n" )
+                procurador.close()
+        except:
+            pass
+
     elif(opcao == 5):
         break
 #         Arquivos
