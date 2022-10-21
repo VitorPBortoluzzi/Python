@@ -12,6 +12,8 @@ from __future__ import with_statement
 from encodings import utf_8
 from operator import truediv
 
+import os
+
 class Pessoa:
     def __init__(self,nome,email,matricula):
         self.nome = nome
@@ -34,10 +36,16 @@ def valida_nome(nome):
         return True
 
 def valida_email(email):
-    if (not email.__contains__('@')):
+    if (not email.__contains__('@') or not email.__contains__('.com')):
         return False
     else:
         return True
+        
+def jaCadastrado(matricula, lista):
+    for pessoa in lista:
+        if(matricula == pessoa.matricula):
+            return True
+        return False
 
 lista_Inscricao = []
 arq_inscritos = "Inscritos.csv"
@@ -77,22 +85,29 @@ while(True):
             if len(email) > 10:
                 if(valida_email(email) == True):
                     break
+                else:
+                    print("exemplo@plataforma.com")
         while (True):
             matricula = input("Insira a matricula: ")
             if len(matricula) >= 5:
                 break
         pessoa = Pessoa(nome,email,matricula)
-
-        #gravas na lista
-        lista_Inscricao.append(pessoa)
+        
+        if(jaCadastrado(matricula,lista_Inscricao)):
+            print("Essa pessoa já esta cadastrada")
+        
+        else:lista_Inscricao.append(pessoa)
 
         try:
             with open(arq_inscritos, "a", encoding='utf8') as procurador:
-                procurador.write(nome + ";" + email + ";" + matricula + ".\n" )
+                procurador.write(nome + ";" + email + ";" + matricula + "." + "\n")
                 procurador.close()
         except:
             pass
-
+    elif(opcao==2):
+        print("Listagem de incritos: ")
+        for pessoa in lista_Inscricao:
+            print("Matricula:" + pessoa.matricula + " " + "Nome:" +pessoa.nome + ".")
     elif(opcao == 5):
         break
 #         Arquivos
