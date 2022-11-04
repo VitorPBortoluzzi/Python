@@ -4,7 +4,7 @@ class palavra:
     quantidade = 0
 
     def __init__(self,valor):
-        self.valor = valor
+        self.valor = valor.lower()
         self.quantidade = 1
 
 lista_palavras = []
@@ -24,15 +24,9 @@ def criar_lista_palavras(lista_palavras,nome_arquivo):
     try:
         with open(nome_arquivo,'r', encoding="utf8") as leitor:
             for linha in leitor:
-                dados_linha = linha.split(" ")
+                dados_linha = linha.split(" " and ".")
                 for palavra in dados_linha:
                     palavra = palavra.lower()
-                    palavra.replace(".","")
-
-                    if(not lista_palavras.contain(palavra)):
-                        lista_palavras.append(palavra)
-
-
                     lista_palavras.append(palavra)
     except:
         print("Erro")
