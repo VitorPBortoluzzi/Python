@@ -107,7 +107,7 @@ while(True):
     elif(opcao==2):
         print("Listagem de incritos: ")
         for pessoa in lista_Inscricao:
-            print("Matricula:" + pessoa.matricula + " " + "Nome:" +pessoa.nome + ".")
+            print("Matricula:" + pessoa.matricula + "" + "Nome:" +pessoa.nome + ".\n")
     elif(opcao == 5):
         break
 #         Arquivos
