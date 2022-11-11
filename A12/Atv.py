@@ -1,47 +1,76 @@
 from __future__ import with_statement
-class palavra:
+from asyncio.windows_events import NULL
+from audioop import reverse
+
+class Palavra:
     valor = ""
     quantidade = 0
 
-    def __init__(self,valor):
+    def __init__(self, valor):
         self.valor = valor
         self.quantidade = 1
 
+    def __eq__(self, other):
+        if isinstance(other, Palavra):
+            return self.valor == other.valor
+        return False
+    
+    def __gt__(self, other):
+        if self.quantidade == other.quantidade:
+            return self.valor < other.valor
+        return self.quantidade > other.quantidade
+####################################################################
 lista_palavras = []
 nome_arquivo = ""
 ####################################################################
-def abrir_arquivo_texto():
-    nome_arquivo = input("Digite caminho e/ou nome do arquivo texto:")
-    try:
-        with open(nome_arquivo,'r', encoding="utf8") as leitor:
-            for linha in leitor:
-                print(linha)
-    except:
-        print("Arquivo não encontrado ou com problema")
-    return(nome_arquivo)
+class Util:
+    @staticmethod
+    def abrir_arquivo_texto():
+        nome_arquivo = input("Digite caminho e/ou nome do arquivo texto:")
+        try:
+            with open(nome_arquivo,'r', encoding="utf8") as leitor:
+                for linha in leitor:
+                    print(linha)
+        except:
+            print("Arquivo não encontrado ou com problema")
+        return(nome_arquivo)
 
-def criar_lista_palavras(lista_palavras,nome_arquivo):
-    try:
-        with open(nome_arquivo,'r', encoding="utf8") as leitor:
-            for linha in leitor:
-                dados_linha = linha.split(" ")
-                for palavra in dados_linha:
-                    palavra = palavra.lower()
-                    palavra.replace(".","")
+    def criar_lista_palavras(lista_palavras,nome_arquivo):
+        try:
+            with open(nome_arquivo,'r', encoding="utf8") as leitor:
+                for linha in leitor:
+                    dados_linha = linha.split(" ")
+                    for palavra in dados_linha:
+                        palavra = palavra.lower()
+                        palavra = palavra.replace(".","")
+                        palavra = palavra.replace(",","")
+                        palavra = palavra.replace(";","")
+                        palavra = palavra.replace("!","")
+                        palavra = palavra.replace("?","")
+                        palavra = palavra.replace("<","")
+                        palavra = palavra.replace(">","")
+                        palavra = palavra.replace("\n","")
 
-                    if(not lista_palavras.contain(palavra)):
-                        lista_palavras.append(palavra)
+                        palavra_obj = Palavra(palavra)
+                        encontrado = False
+                        for p in lista_palavras:
+                            if(p.valor == palavra_obj.valor):
+                                p.quantidade += 1
+                                encontrado = True
+##########################################################################
+                        if (not encontrado):
+                            lista_palavras.append(palavra_obj)
 
+                        # if(not palavra in lista_palavras):
+                        #     lista_palavras.append(palavra)
+                        
+        except:
+            print("Erro")
 
-                    lista_palavras.append(palavra)
-    except:
-        print("Erro")
+    def exibir_lista_palavras(lista_palavras):
+        for palavra in lista_palavras:
+            print(palavra.valor, " - ", palavra.quantidade)
 
-def exibir_lista_palavras(lista_palavras):
-    for palavra in lista_palavras:
-        print(palavra)
-
-lista_palavras = []
 while(True):
     print("MENU"    )
     print("1- Carregar arquivo texto")
@@ -51,13 +80,14 @@ while(True):
 
     if(opcao == 1):
         print("Abrindo o arquivo.....")
-        nome_arquivo = abrir_arquivo_texto()
+        nome_arquivo = Util.abrir_arquivo_texto()
         pass
     elif(opcao ==2):
         lista_palavras.clear()
         print("Lista de palavras....")
-        criar_lista_palavras(lista_palavras,nome_arquivo)
-        exibir_lista_palavras(lista_palavras)
+        Util.criar_lista_palavras(lista_palavras,nome_arquivo)
+        lista_palavras.sort(reverse = True)
+        Util.exibir_lista_palavras(lista_palavras)
 
     elif(opcao == 4):
         break

@@ -37,3 +37,6 @@ Leitura de Arquivos: https://www.w3schools.com/python/python_file_handling.asp
 Rodar comando:
 cd 'nome pasta'-> Andar pra frente
 cd .. --> tras
+
+### Classe:
+https://github.com/alexandrezamberlan/pesquisa_ordenacao/blob/master/4-pesquisa/boasPraticasClasse/Peca.py
