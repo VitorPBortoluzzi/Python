@@ -110,6 +110,7 @@ while(True):
         Util.exibir_lista_palavras(lista_palavras)
     elif(opcao == 3):
         lista_vezes_palavra.clear()
+        nome_arquivo = Util.abrir_arquivo_texto()
         temp = input("Palavra/expressão: ")
         Util.vezesQ_aparece(lista_vezes_palavra,nome_arquivo)
         
